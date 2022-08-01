@@ -56,18 +56,20 @@ async def on_message(message):
     # Ignore messages from self
     if message.author == client.user:
         return
+    # Extract needed variables
+    channel = str(message.channel.id)
     # Channel ID 1
-    if str(message.channel.id) ==discord_channel_id1 :
-        img = message.embeds[0].image.url
-        desc = message.embeds[0].description 
-        api.update_with_media(img, desc)
+    if channel == discord_channel_id1:
+        api.update_status(
+            message.embeds[0].description + "\n" + message.embeds[0].image.url
+        )
         print('Tweet posted from channel 1')
     # Channel ID 2
-    if str(message.channel.id) ==discord_channel_id2 :
+    if channel ==discord_channel_id2:
         api.update_status(status=message.content)
         print('Tweet posted from channel 2')
     # Channel ID 3
-    if str(message.channel.id) ==discord_channel_id3 :
+    if channel ==discord_channel_id3:
         api.update_status(status=message.content)
         print('Tweet posted from channel 3')
 
