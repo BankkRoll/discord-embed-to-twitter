@@ -66,11 +66,15 @@ async def on_message(message):
         print('Tweet posted from channel 1')
     # Channel ID 2
     if channel ==discord_channel_id2:
-        api.update_status(status=message.content)
+        api.update_status(
+            message.embeds[0].description + "\n" + message.embeds[0].image.url
+        )
         print('Tweet posted from channel 2')
     # Channel ID 3
     if channel ==discord_channel_id3:
-        api.update_status(status=message.content)
+        api.update_status(
+            message.embeds[0].description + "\n" + message.embeds[0].image.url
+        )
         print('Tweet posted from channel 3')
 
 # Initiate bot
