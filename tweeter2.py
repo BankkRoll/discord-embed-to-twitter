@@ -1,7 +1,3 @@
-# IN PROGRESS
-
----
-
 import os
 import discord
 from time import sleep
